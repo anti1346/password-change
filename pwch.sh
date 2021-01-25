@@ -1,4 +1,8 @@
 #!/bin/bash
+CYAN='\033[0;36m'
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
 
 MyIP=`dig @resolver1.opendns.com myip.opendns.com +short`
 NetworkID=`echo $MyIP | cut -d . -f1-3`
@@ -22,8 +26,8 @@ function PASSWORD
     fi
 
     echo $pwdstr$nid$hid | passwd --stdin $user > /dev/null 2>&1
-    echo -e "$user password has been updated."
-    echo -e "sshpass -p'$pwdstr$nid$hid' ssh $user@$MyIP -oStrictHostKeyChecking=no"
+    echo -e "${GREEN}$user password has been updated.${NC}"
+    echo -e "${RED}sshpass -p'$pwdstr$nid$hid' ssh $user@$MyIP -oStrictHostKeyChecking=no${NC}"
   done
 }
 
