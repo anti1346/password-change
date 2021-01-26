@@ -7,7 +7,7 @@ git clone https://github.com/anti1346/password-change.git pwch
 
 #### requirements package
 ```
-yum install -y sshpass
+yum install -y sshpass bind-utils
 ```
 
 #### script execute
